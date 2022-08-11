@@ -25,16 +25,22 @@
                 </a>
                 <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                <a class="nav-link" href="{{ url('/posts') }}">
+                   <a class="nav-link" href="{{ url('/posts') }}">
                     My Posts
-                </a>
+                   </a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="{{ url('/profile') }}">
+                    <a class="nav-link" href="{{ url('/profile') }}">
                     My Profile
-                </a>
+                   </a>
                 </li>
-                </ul>   
+                </ul> 
+                <form action="" method="post">
+                <div class="input-group ">
+                    <input type="search" class="form-control rounded " placeholder="Search here..." aria-label="Search" aria-describedby="search-addon" />
+                    <button type="button" class="btn btn-outline-primary">search</button>   
+                </div>
+                </form> 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
