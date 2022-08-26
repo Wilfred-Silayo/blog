@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Posts;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -22,7 +24,8 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function home()
-    {
-        return view('home');
+    {   
+        $posts=Posts::with('user')->get ();
+        return view('home',compact('posts'));
     }
 }

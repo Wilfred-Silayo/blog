@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-md border">
         
-                <p>Welcome</p>
+    <p>Welcome</p>
         
 
 </div>     

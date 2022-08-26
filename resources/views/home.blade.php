@@ -4,19 +4,18 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
+            @foreach($posts as $post)
+                <div class="card my-2">
+                    <div class="card-body my-3">
+                        <b>{{ $post->title}}</b>
+                        created by | <a style=" text-decoration:none; " href="{{ '/profile/'.$post->user_id }}">{{ $post->user->name }}</a> <br>
+                    
+                        {{$post->body}}  
+                        
+                    </div>
                 </div>
-            </div>
+             @endforeach
+        
         </div>
     </div>
 </div>

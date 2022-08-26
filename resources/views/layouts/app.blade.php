@@ -20,18 +20,24 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/home') }}">
+                <a class="navbar-brand" >
                     W Blog
                 </a>
+                @if(Auth::user())
                 <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                   <a class="nav-link" href="{{ url('/posts') }}">
-                    My Posts
+                   <a class="nav-link" href="{{ url('/home') }}">
+                    Home
                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/profile') }}">
-                    My Profile
+                   <a class="nav-link" href="{{url('/posts').'/'.Auth::user()->id}}">
+                    Posts
+                   </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/profile').'/'.Auth::user()->id}}">
+                    Profile
                    </a>
                 </li>
                 </ul> 
@@ -45,7 +51,8 @@
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+                @endif
+                 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">

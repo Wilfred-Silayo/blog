@@ -16,10 +16,12 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->timestamp('posted_at');
-            $table->string('created_by');
+            $table->bigInteger('user_id')->unsigned()->index();
+            $table->string('title');
+            $table->string('body');
             $table->timestamps();
-            $table->foreign('created_by')
-            ->references('email')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')
+            ->references('id')->on('users')->onDelete('cascade');
            
         });
     }
