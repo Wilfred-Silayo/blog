@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Posts;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -26,7 +26,7 @@ class PostsController extends Controller
      */
     public function posts($id)
     {   
-        $posts=Posts::with('user')->where('user_id',$id)->get();
+        $posts=Post::with('user')->where('user_id',$id)->get();
         return view('posts',compact('posts'));
     }
 

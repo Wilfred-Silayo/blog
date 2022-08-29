@@ -36,7 +36,7 @@
                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/profile').'/'.Auth::user()->id}}">
+                    <a class="nav-link" href="{{ url('/profile').'/'.Auth::user()->id }}">
                     Profile
                    </a>
                 </li>

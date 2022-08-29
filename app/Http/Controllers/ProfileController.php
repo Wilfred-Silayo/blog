@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Models\Profile;
+use App\Models\Follower;
 
 class ProfileController extends Controller
 {
@@ -48,9 +50,12 @@ class ProfileController extends Controller
     }
 
     public function profile( $user )
-    {  
-        $users = User::where('id', $user)->get();
-        return view('profile',["users" => $users]);
-    
+    {
+        $profile=Profile::with('user')->where('user_id',$user)->get();
+        $followers=Follower::with('profile')->where('following_id',$user)->count();
+        $followings=Follower::withCount('profile')->where('follower_id',$user)->count();
+
+        return view('profile', compact('profile') ,['followers'=>$followers, 'followings'=>$followings]);
+        
     }
 }

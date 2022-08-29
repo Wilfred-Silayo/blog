@@ -1,18 +1,16 @@
 <?php
 
 namespace App\Models;
-use App\Models\User;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Posts extends Model
+class Follower extends Model
 {
     use HasFactory;
-    
-    public function user()
-    {
-        return $this->belongsTo('App\Models\User');
-    }
 
-    
+    public function profile(){
+
+        return $this->belongsTo('App\Models\Profile');
+     }
 }
