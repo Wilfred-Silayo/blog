@@ -26,7 +26,7 @@ class PostsController extends Controller
      */
     public function posts($id)
     {   
-        $posts=Post::with('user')->where('user_id',$id)->get();
+        $posts=Post::with('user')->where('user_id',$id)->orderBy('posted_at', 'DESC')->get();
         return view('posts',compact('posts'));
     }
 
@@ -41,7 +41,7 @@ class PostsController extends Controller
         $body = $request->input('message');
         $data= array('user_id'=>$id,'title'=>$title, 'body'=>$body);
         DB::table('posts')->insert($data);
-        return view('createpost');
+        return redirect()->route('Posts', ['user' => $id]);
     }
    
 

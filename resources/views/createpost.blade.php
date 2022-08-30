@@ -17,14 +17,14 @@
                             <label for="posttitle">Post Title</label>
 
                             <div class="col">
-                                <input type="text" class="form-control" id="posttitle" name="posttitle">
+                                <input type="text" class="form-control" id="posttitle" name="posttitle" required>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="message">Post Content</label>
 
                             <div class="col">
-                                <textarea name="message" id="message" cols="10" rows="5" class="form-control"></textarea>
+                                <textarea name="message" id="message" cols="10" rows="5" class="form-control" required></textarea>
                             </div>
                         </div>
                         <div class="row mb-0">

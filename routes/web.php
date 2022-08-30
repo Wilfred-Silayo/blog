@@ -23,6 +23,10 @@ Route::get('/posts/{user}', [App\Http\Controllers\PostsController::class, 'posts
 Route::get('/createpost', [App\Http\Controllers\PostsController::class, 'createposts'])->name('newPosts');
 Route::post('/savepost', [App\Http\Controllers\PostsController::class, 'savepost'])->name('savepost');
 Route::get('/profile/{user}', [App\Http\Controllers\ProfileController::class, 'profile'])->name('profile');
+Route::get('/p/edit', [App\Http\Controllers\ProfileController::class, 'profileEdit'])->name('editProfile');
+Route::post('/prof/save', [App\Http\Controllers\ProfileController::class, 'profileSave'])->name('saveProfile');
+
+
 
 
 

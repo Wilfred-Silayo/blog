@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function home()
     {   
-        $posts=Post::with('user')->get ();
+        $posts=Post::with('user')->orderBy('posted_at', 'DESC')->get ();
         return view('home',compact('posts'));
     }
 }

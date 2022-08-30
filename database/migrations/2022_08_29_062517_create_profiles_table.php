@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned()->index();
+            $table->bigInteger('user_id')->unsigned()->index()->unique();
             $table->text('description')->nullable();
+            $table->string('profile_image')->nullable();
             $table->foreign('user_id')
             ->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
